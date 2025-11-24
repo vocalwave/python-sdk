@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "qrng-api"
+version = "1.0.0"
+description = "Official Python SDK for QRNG API - Quantum Random Number Generation"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "QRNG API", email = "support@qrngapi.com"}
+]
+maintainers = [
+    {name = "QRNG API", email = "support@qrngapi.com"}
+]
+keywords = ["quantum", "random", "number", "generator", "entropy", "cryptography", "qrng"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Security :: Cryptography",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.25.0",
+    "websocket-client>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=22.0.0",
+    "mypy>=0.990",
+    "build>=0.10.0",
+    "twine>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://qrngapi.com"
+Documentation = "https://qrngapi.com/docs"
+Repository = "https://github.com/qrng-api/python-sdk"
+Issues = "https://github.com/qrng-api/python-sdk/issues"
+Changelog = "https://github.com/qrng-api/python-sdk/releases"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["qrng*"]
+exclude = ["tests*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
